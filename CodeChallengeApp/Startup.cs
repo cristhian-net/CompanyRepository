@@ -27,7 +27,7 @@ namespace CodeChallengeApp
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             // services.AddScoped<ICompanyRepository, InFileCompanyRepository>();
-            services.AddSingleton<ICompanyRepository, InMemoryRepository>();
+            services.AddSingleton<ICompanyRepository, InMemoryCompanyRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CodeChallengeApp.Data.Repositories
 {
-    public class InMemoryRepository : ICompanyRepository
+    public class InMemoryCompanyRepository : ICompanyRepository
     {
         private List<Company> Db;
 
-        public InMemoryRepository()
+        public InMemoryCompanyRepository()
         {
             Db = new List<Company>();
         }
