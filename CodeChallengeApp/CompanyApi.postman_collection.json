@@ -1,0 +1,142 @@
+{
+	"info": {
+		"_postman_id": "79b6177b-83d5-4a4e-970c-51d97996bc44",
+		"name": "CompanyApi",
+		"description": "CompanyApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get All Companies",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52708/api/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52708",
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Company",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Marlboro2\",\n\t\"foundedDate\": \"1990-01-01\",\n\t\"createdDate\": \"1990-01-01\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:52708/api/company",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52708",
+					"path": [
+						"api",
+						"company"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Company",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"companyId\": 1,\n\t\"name\": \"Marlboro1 Edit\",\n\t\"foundedDate\": \"1990-01-01\",\n\t\"createdDate\": \"1990-01-01\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:52708/api/company/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52708",
+					"path": [
+						"api",
+						"company",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Company",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:52708/api/company/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52708",
+					"path": [
+						"api",
+						"company",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Company by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:52708/api/company/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "52708",
+					"path": [
+						"api",
+						"company",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
