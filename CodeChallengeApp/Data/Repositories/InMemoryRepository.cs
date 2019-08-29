@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CodeChallengeApp.Utils;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace CodeChallengeApp.Data.Repositories
 
         private int GenerateId()
         {
-            return Db.Count() == 0 ? 1 : Db.Max(c => c.CompanyId) + 1;
+            return IdHelper.GenerateId(Db, "CompanyId");
         }
 
         public void Delete(int companyId)

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using CodeChallengeApp.Utils;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -19,8 +20,7 @@ namespace CodeChallengeApp.Data.Repositories
             company.CompanyId = GenerateId(companies);
             companies.Add(company);
 
-            string newJson = JsonConvert.SerializeObject(companies);
-            File.WriteAllText(file, newJson);
+            WriteArrayToFile(companies);
 
             return company.CompanyId;
         }
@@ -33,13 +33,8 @@ namespace CodeChallengeApp.Data.Repositories
             {
                 companies.Remove(company);
             }
-            string newJson = JsonConvert.SerializeObject(JArray.FromObject(companies));
-            File.WriteAllText(file, newJson);
-        }
 
-        private int GenerateId(IEnumerable<Company> companies)
-        {
-            return companies.Count() == 0 ? 1 : companies.Max(c => c.CompanyId) + 1;
+            WriteArrayToFile(companies);
         }
 
         public IEnumerable<Company> GetAll()
@@ -51,11 +46,6 @@ namespace CodeChallengeApp.Data.Repositories
                 File.AppendAllText(file, json);
             }
             return JsonConvert.DeserializeObject<List<Company>>(GetCompaniesFromFileAsJson());
-        }
-
-        private string GetCompaniesFromFileAsJson()
-        {
-            return File.ReadAllText(file);
         }
 
         public Company GetById(int companyId)
@@ -72,6 +62,21 @@ namespace CodeChallengeApp.Data.Repositories
             {
                 companies[position] = company;
             }
+            WriteArrayToFile(companies);
+        }
+
+        private int GenerateId(IEnumerable<Company> companies)
+        {
+            return IdHelper.GenerateId(companies, "CompanyId");
+        }
+
+        private string GetCompaniesFromFileAsJson()
+        {
+            return File.ReadAllText(file);
+        }
+
+        private void WriteArrayToFile(List<Company> companies)
+        {
             string newJson = JsonConvert.SerializeObject(companies);
             File.WriteAllText(file, newJson);
         }
